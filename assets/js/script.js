@@ -1,37 +1,35 @@
-let firstNum = document.getElementById('first-num');
-let secondNum = document.getElementById('second-num');
-let ratio = document.getElementById('ratio');
-const btns = document.querySelectorAll('.test__btn');
-const result = document.querySelector('.test__result');
-const testRight = document.querySelector('.test__right');
+const header = document.querySelector('header');
+const nav = document.querySelector('.nav');
+const mobNav = document.querySelector('.mob-nav');
+const burger = document.querySelector('.burger');
+const body = document.querySelector('body');
 
-const dataArrsToBtns = [2, 4, 5, 6];
-
-for (i = 0; i < btns.length; i++) {
-  btns[i].setAttribute('data', dataArrsToBtns[i]);
-}
-
-for (i = 0; i < btns.length; i++) {
-  //
-  btns[i].onclick = function () {
-    let data = this.getAttribute('data');
-    //
-    checkBtn(this);
-    let fNum = firstNum.value;
-    let sNum = secondNum.value;
-    let rNum = ratio.value;
-    result.innerHTML = (+fNum + +sNum) * +rNum * +data;
-  };
-}
-
-let buff;
-function checkBtn(thisEl) {
-  if (buff !== thisEl) {
-    buff = '';
-  } else {
-    buff = thisEl;
+document.addEventListener('click', (e) => {
+  if (e.target.closest('.mob-nav')) {
+    nav.classList.toggle('_active');
+    burger.classList.toggle('_rotate');
   }
+  if (!e.target.closest('header')) {
+    nav.classList.remove('_active');
+    burger.classList.remove('_rotate');
+  }
+});
 
-  console.log(thisEl);
-  console.log(buff);
-}
+const link = document.querySelector('.link');
+
+link.addEventListener('click', (e) => {
+  // console.log(link);
+  e.preventDefault();
+});
+
+document.addEventListener('keyup', (e) => {
+  e.preventDefault();
+  // console.log(e.code);
+});
+document.addEventListener('keydown', (e) => {
+  // e.preventDefault();
+  // console.log(e.code);
+});
+window.addEventListener('scroll', function () {
+  body.style.backgroundColor = `rgba(${scrollY * 0}, ${scrollY * 0.8}, ${scrollY * 0.4})`;
+});
