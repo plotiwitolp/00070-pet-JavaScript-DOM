@@ -47,17 +47,67 @@ body {
 body {
   font-family: 'OpenSans-Medium', sans-serif;
 }
-hr {
-  border: 1px solid #777;
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  height: 100%;
 }
-.one {
-  background: #000;
+.test {
+  background-color: #777;
+  min-height: 100px;
 }
-.two {
-  background: orange;
+.test__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  background-color: aqua;
 }
-.three {
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid #000;
+.test__left,
+.test__right {
+  width: 50%;
+}
+.test__left {
+  display: flex;
+  flex-direction: column;
+}
+.input__item,
+.label__item {
+  font-size: 22px;
+}
+.label__item {
+  color: rgb(44, 44, 44);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.input__item {
+  color: #000;
+  width: 200px;
+  padding: 5px 15px;
+  margin: 10px 0 15px;
+  border-radius: 5px;
+  outline: none;
+}
+.test__sum {
+  width: 100%;
+  font-size: 32px;
+  text-align: end;
+}
+button.test__btn {
+  font-size: 22px;
+  text-transform: uppercase;
+  width: 200px;
+  height: 50px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 0 4px 7px;
+  transition: box-shadow 0.1s ease 0s;
+  cursor: pointer;
+  &:active {
+    box-shadow: 0 1px 4px;
+  }
+}
+.active {
+  background-color: tomato;
 }

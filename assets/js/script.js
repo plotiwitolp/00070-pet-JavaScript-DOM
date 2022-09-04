@@ -1,20 +1,37 @@
-const one = document.querySelector('.one');
+let firstNum = document.getElementById('first-num');
+let secondNum = document.getElementById('second-num');
+let ratio = document.getElementById('ratio');
+const btns = document.querySelectorAll('.test__btn');
+const result = document.querySelector('.test__result');
+const testRight = document.querySelector('.test__right');
 
-one.style.color = '#fff';
-one.style.width = '150px';
+const dataArrsToBtns = [2, 4, 5, 6];
 
-one.classList.add('two', 'three');
-one.classList.remove('three');
+for (i = 0; i < btns.length; i++) {
+  btns[i].setAttribute('data', dataArrsToBtns[i]);
+}
 
-const toggle = document.querySelector('.toggle');
+for (i = 0; i < btns.length; i++) {
+  //
+  btns[i].onclick = function () {
+    let data = this.getAttribute('data');
+    //
+    checkBtn(this);
+    let fNum = firstNum.value;
+    let sNum = secondNum.value;
+    let rNum = ratio.value;
+    result.innerHTML = (+fNum + +sNum) * +rNum * +data;
+  };
+}
 
-toggle.onclick = function () {
-  this.classList.toggle('three');
-};
+let buff;
+function checkBtn(thisEl) {
+  if (buff !== thisEl) {
+    buff = '';
+  } else {
+    buff = thisEl;
+  }
 
-let oneData = one.getAttribute('data');
-console.log(oneData);
-let cssLink = document.querySelectorAll('link')[0].getAttribute('href');
-console.log(cssLink);
-
-one.setAttribute('data-num', 6);
+  console.log(thisEl);
+  console.log(buff);
+}
