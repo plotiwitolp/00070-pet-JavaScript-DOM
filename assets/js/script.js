@@ -18,18 +18,13 @@ document.addEventListener('click', (e) => {
 const link = document.querySelector('.link');
 
 link.addEventListener('click', (e) => {
-  // console.log(link);
   e.preventDefault();
 });
 
 document.addEventListener('keyup', (e) => {
   e.preventDefault();
-  // console.log(e.code);
 });
-document.addEventListener('keydown', (e) => {
-  // e.preventDefault();
-  // console.log(e.code);
-});
+document.addEventListener('keydown', (e) => {});
 window.addEventListener('scroll', function () {
   body.style.backgroundColor = `rgba(${scrollY * 0}, ${scrollY * 0.8}, ${scrollY * 0.4})`;
 });
